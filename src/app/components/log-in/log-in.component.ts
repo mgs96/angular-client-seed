@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Angular2TokenService } from 'angular2-token';
 
 @Component({
   selector: 'app-log-in',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _tokenService: Angular2TokenService) { }
+
+  output: any = {};
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    this.output = {};
+    this._tokenService.signInOAuth('google').subscribe(
+      res =>      console.log(res),
+      error =>    console.log(error)
+    );
+  }
 }

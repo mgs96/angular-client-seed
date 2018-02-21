@@ -17,6 +17,8 @@ import { HomeComponent } from './components/home/home.component';
 import { RestrictedComponent } from './components/restricted/restricted.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
+import { OutputComponent } from './components/shared/output/output.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,16 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
     HomeComponent,
     RestrictedComponent,
     LogInComponent,
-    NavbarComponent
+    NavbarComponent,
+    OutputComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule,
     NgbModule.forRoot(),
-    APP_ROUTES
+    APP_ROUTES,
+    FormsModule
   ],
   providers: [
     Angular2TokenService
