@@ -11,10 +11,10 @@ export class AppComponent {
 
   constructor(private _tokenService: Angular2TokenService) {
     this._tokenService.init({
-      apiBase: 'http://localhost:3000/',
-      oAuthBase: 'http://localhost:3000/',
-      /*apiBase: 'https://rails-api-seed.herokuapp.com/',
-      oAuthBase: 'https://rails-api-seed.herokuapp.com/',*/
+      // apiBase: 'http://localhost:3000/',
+      // oAuthBase: 'http://localhost:3000/',
+      apiBase: 'https://rails-api-seed.herokuapp.com/',
+      oAuthBase: 'https://rails-api-seed.herokuapp.com/',
       oAuthPaths: {
         google: 'auth/google_oauth2'
       },
