@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Angular2TokenService } from 'angular2-token';
+import { GoogleApiService, GoogleAuthService } from 'ng-gapi';
+import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: 'app-log-in',
@@ -8,7 +10,7 @@ import { Angular2TokenService } from 'angular2-token';
 })
 export class LogInComponent implements OnInit {
 
-  constructor(private _tokenService: Angular2TokenService) { }
+  constructor(private gapiService: GoogleApiService, private _userService: UserService) { }
 
   output: any = {};
 
@@ -16,10 +18,8 @@ export class LogInComponent implements OnInit {
   }
 
   onSubmit() {
-    this.output = {};
-    this._tokenService.signInOAuth('google').subscribe(
-      res =>      console.log(res),
-      error =>    console.log(error)
-    );
+    this.gapiService.onLoad().subscribe(() => {
+      this._userService.signIn();
+    })
   }
 }
